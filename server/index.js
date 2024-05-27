@@ -4,8 +4,9 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const createError = require("http-errors");
-const userRoute = require("./src/routes/userRoute");
-const categoryRoute = require("./src/routes/categoryRoute");
+const userRoutes = require("./src/routes/userRoute");
+const categoryRoutes = require("./src/routes/categoryRoute");
+const subCategoryRoutes = require('./src/routes/subCategoryRoute');
 const colors = require("colors");
 const dotenv = require("dotenv");
 const dbConnect = require("./src/config/db");
@@ -23,8 +24,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use("/api/v1", userRoute);
-app.use("/api/v1", categoryRoute);
+app.use("/api/v1", userRoutes);
+app.use("/api/v1", categoryRoutes);
+app.use("/api/v1", subCategoryRoutes);
 
 app.use((req, res, next) => {
   next(createError(404, "not found"));
