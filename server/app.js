@@ -9,8 +9,9 @@ const createError = require("http-errors");
 const userRoutes = require("./src/routes/userRoute");
 const categoryRoutes = require("./src/routes/categoryRoute");
 const subCategoryRoutes = require('./src/routes/subCategoryRoute');
-const productRoutes = require('./src/routes/productRoute');
+const productRoutes = require('./src/routes/produtsRoute');
 const cartRoutes = require('./src/routes/cartRoute');
+const orderRoutes = require('./src/routes/orderRoute');
 const wishlistRoutes = require('./src/routes/wishlistRoute');
 const reviewRoutes = require('./src/routes/reviewRoute');
 
@@ -43,6 +44,7 @@ app.use("/api/v1", productRoutes);
 app.use("/api/v1", cartRoutes);
 app.use("/api/v1", wishlistRoutes);
 app.use("/api/v1", reviewRoutes);
+app.use("/api/v1", orderRoutes);
 
 
 
